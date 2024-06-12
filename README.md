@@ -12,7 +12,7 @@ git clone https://github.com/i5heu/aliases.git ~/.aliases
 ```
 Now run 
 ```bash
-sh ~/.aliases/setup.sh
+sh ~/.aliases/setup.sh && source ~/.aliases/aliases
 ```
 
 To update use (copy with parenthesize)
