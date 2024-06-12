@@ -1,1 +1,2 @@
 alias dud='du -hd 1 . | sort -hr'
+alias up=`apt update && apt -y full-upgrade && apt -y dist-upgrade && apt -y autoremove`
