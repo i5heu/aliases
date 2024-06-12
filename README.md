@@ -14,3 +14,8 @@ Now run
 ```bash
 sh ~/.aliases/setup.sh
 ```
+
+To update use (copy with parenthesize)
+```base
+( cd ~/.aliases && git pull )
+```
