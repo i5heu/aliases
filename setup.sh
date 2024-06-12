@@ -9,3 +9,5 @@ if ! grep -qF "$lines" "$HOME/.bashrc"; then
 else
     echo "Lines already exist in .bashrc"
 fi
+
+source $HOME/.aliases/aliases
