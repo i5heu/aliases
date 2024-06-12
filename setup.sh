@@ -10,4 +10,4 @@ else
     echo "Lines already exist in .bashrc"
 fi
 
-source $HOME/.aliases/aliases
+source ~/.aliases/aliases
