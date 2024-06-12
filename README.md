@@ -4,6 +4,7 @@ Look here for [Install](#Install)
 
 ## Aliases
 - `dud` Will show the size of all folders in the current directory, sorted by size
+- `up`  Will update, upgrade, dis-upgrade and autoremove - will call sudo
 
 ## Install
 Go to homefolder and run this
