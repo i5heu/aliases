@@ -17,5 +17,5 @@ sh ~/.aliases/setup.sh && source ~/.aliases/aliases
 
 To update use (copy with parenthesize)
 ```base
-( cd ~/.aliases && git pull && source ~/.aliases/aliases )
+( cd ~/.aliases && git pull ) && source ~/.aliases/aliases 
 ```
