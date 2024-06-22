@@ -13,11 +13,7 @@ Look here for [Install](#Install)
 ## Install
 Go to homefolder and run this
 ```bash
-git clone https://github.com/i5heu/aliases.git ~/.aliases
-```
-Now run to initiate
-```bash
-sh ~/.aliases/setup.sh && source ~/.aliases/aliases
+git clone https://github.com/i5heu/aliases.git ~/.aliases && sh ~/.aliases/setup.sh && source ~/.aliases/aliases
 ```
 
 To update use
