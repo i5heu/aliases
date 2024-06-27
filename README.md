@@ -1,4 +1,4 @@
-alia# My Aliases
+# i5heu's Aliases
 
 Look here for [Install](#Install)
 
