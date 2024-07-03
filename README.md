@@ -14,6 +14,7 @@
 
 ### Kubernetes
 - `k` Alias for `microk8s kubectl` - the kubectl of microk8s
+- `kubectl` Alias for `microk8s kubectl` - the kubectl of microk8s
 - `m8` Alias for `microk8s`
 - `m8dp` Alias for `microk8s dashboard-proxy`
 
