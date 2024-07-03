@@ -12,7 +12,7 @@ Look here for [Install](#Install)
 - `tazstd` Will tar a given directory and compress it with ZSTD
 - `recomp` Will down and up docker compose, will remove orphans, will show then logs which you can Strg+C without taking the deployment down
 - `aliasup` Will update and apply this aliases collection to your system, current and future sessions
-- `kc` Alias for `microk8s kubectl` - the kubectl of microk8s
+- `k` Alias for `microk8s kubectl` - the kubectl of microk8s
 - `m8` Alias for `microk8s`
 
 ### Install Aliases
