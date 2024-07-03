@@ -14,11 +14,11 @@ Look here for [Install](#Install)
 - `aliasup` Will update and apply this aliases collection to your system, current and future sessions
 - `kc` Alias for `microk8s kubectl` - the kubectl of microk8s
 
-## Install Aliases
+### Install Aliases
 - `intsall_default` 👑 Will install `docker.io docker-compose-v2 htop iftop`
 - `install_microk8` 👑 Will install MicroK8 - will call sudo
 
-**Legend**:
+###
 - 👑 will call sudo
 
 ## Install
