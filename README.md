@@ -1,5 +1,5 @@
 # i5heu's Aliases
-[Install Aliases](#Install)
+[Install Aliases](#Install_Aliases)  
 [Legend](#Legend)
 
 
