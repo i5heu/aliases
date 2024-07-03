@@ -11,7 +11,7 @@ alias dud='du -hd 1 . | sort -hr'
 alias up='sudo apt-get update && sudo apt-get -y full-upgrade && sudo apt-get -y dist-upgrade && sudo apt-get -y autoremove'
 alias recomp='docker_compose down && docker_compose up --remove-orphans -d && docker_compose logs -f'
 alias aliasup='( cd ~/.aliases && git pull ) && source ~/.aliases/aliases '
-alias intsall_default='apt install docker.io docker-compose-v2 htop iftop'
+alias intsall_default='sudo apt install docker.io docker-compose-v2 htop iftop'
 
 ###################################################
 ########### aliases that run scripts ##############
