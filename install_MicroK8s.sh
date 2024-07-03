@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Update packages and upgrade the system
-apt update
-apt full-upgrade -y
+sudo apt update
+sudo apt full-upgrade -y
 
 # Check if microk8s is already installed and install it if not
 if snap list microk8s &> /dev/null; then
