@@ -16,8 +16,8 @@ sudo usermod -a -G microk8s $USER
 sudo chown -f -R $USER:$USER ~/.kube
 
 # Ensure microk8s is ready and enable necessary services
-sudo -u $USER /snap/bin/microk8s status --wait-ready
-sudo -u $USER /snap/bin/microk8s enable dns ingress
+sudo -u $USER microk8s status --wait-ready
+sudo -u $USER microk8s enable dns ingress
 
 # Execute kubectl command to check resources
-sudo -u $USER /snap/bin/microk8s kubectl get all --all-namespaces
+sudo -u $USER microk8s kubectl get all --all-namespaces
