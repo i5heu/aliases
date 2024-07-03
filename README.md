@@ -2,19 +2,22 @@
 
 Look here for [Install](#Install)
 
+**Legend**:
+- 👑 will call sudo
+
 ## Aliases
+- `up` 👑 Will update, upgrade, dis-upgrade and autoremove
 - `dud` Will show the size of all folders in the current directory, sorted by size
 - `mkdid` Will create folder of path given recursivly and then enter the deepest folder
-- `up`  Will update, upgrade, dis-upgrade and autoremove - will call sudo
-- `lh`  Will print list all files with human readable size
+- `lh` Will print list all files with human readable size
 - `tazstd` Will tar a given directory and compress it with ZSTD
 - `recomp` Will down and up docker compose, will remove orphans, will show then logs which you can Strg+C without taking the deployment down
 - `aliasup` Will update and apply this aliases collection to your system, current and future sessions
 - `kc` Alias for `microk8s kubectl` - the kubectl of microk8s
 
 ### Install Aliases
-- `intsall_default` Will install `docker.io docker-compose-v2 htop iftop`
-- `install_microk8` Will install MicroK8
+- `intsall_default` 👑 Will install `docker.io docker-compose-v2 htop iftop`
+- `install_microk8` 👑 Will install MicroK8 - will call sudo
 
 ## Install
 Go to homefolder and run this
