@@ -5,6 +5,7 @@ alias tazstd='function _tazstd(){ tar -cf - "$1" | zstd -o "$1.tar.zst"; }; _taz
 alias recomp='docker_compose down && docker_compose up --remove-orphans -d && docker_compose logs -f'
 alias aliasup='( cd ~/.aliases && git pull ) && source ~/.aliases/aliases '
 alias intsallDefault='apt install docker.io docker-compose htop iftop'
+alias kc='microk8s kubectl'
 
 mkdid() {
   mkdir -p "$1" && cd "$1"
