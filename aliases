@@ -1,11 +1,27 @@
+###################################################
+################### real aliases ##################
+###################################################
+alias kc='microk8s kubectl'
+alias lh='ls -lah'
+
+###################################################
+#####  aliases that behave like new programms #####
+###################################################
 alias dud='du -hd 1 . | sort -hr'
 alias up='sudo apt-get update && sudo apt-get -y full-upgrade && sudo apt-get -y dist-upgrade && sudo apt-get -y autoremove'
-alias lh='ls -lah'
-alias tazstd='function _tazstd(){ tar -cf - "$1" | zstd -o "$1.tar.zst"; }; _tazstd'
 alias recomp='docker_compose down && docker_compose up --remove-orphans -d && docker_compose logs -f'
 alias aliasup='( cd ~/.aliases && git pull ) && source ~/.aliases/aliases '
-alias intsallDefault='apt install docker.io docker-compose htop iftop'
-alias kc='microk8s kubectl'
+alias intsall_default='apt install docker.io docker-compose-v2 htop iftop'
+
+###################################################
+########### aliases that run scripts ##############
+###################################################
+alias install_microk8='sh ~/.aliases/install_MicroK8s.sh'
+
+###################################################
+################ alias functions ##################
+###################################################
+alias tazstd='function _tazstd(){ tar -cf - "$1" | zstd -o "$1.tar.zst"; }; _tazstd'
 
 mkdid() {
   mkdir -p "$1" && cd "$1"
