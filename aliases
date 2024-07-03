@@ -2,7 +2,7 @@
 ################### real aliases ##################
 ###################################################
 alias m8='microk8s'
-alias kc='microk8s kubectl'
+alias k='microk8s kubectl'
 alias lh='ls -lah'
 
 ###################################################
