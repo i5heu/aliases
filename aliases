@@ -4,6 +4,7 @@
 alias m8='microk8s'
 alias m8dp='microk8s dashboard-proxy'
 alias k='microk8s kubectl'
+alias kubectl='microk8s kubectl'
 alias lh='ls -lah'
 
 ###################################################
