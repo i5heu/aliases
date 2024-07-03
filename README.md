@@ -18,7 +18,7 @@ Look here for [Install](#Install)
 - `intsall_default` 👑 Will install `docker.io docker-compose-v2 htop iftop`
 - `install_microk8` 👑 Will install MicroK8 - will call sudo
 
-###
+### Legend
 - 👑 will call sudo
 
 ## Install
