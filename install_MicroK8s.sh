@@ -5,9 +5,10 @@ sudo apt update
 sudo apt full-upgrade -y
 
 # Check if microk8s is already installed and install it if not
-if snap list microk8s &> /dev/null; then
+if snap list microk8s 1>/dev/null 2>&1; then
     echo "microk8s is already installed."
 else
+    echo "microk8s is not installed, attempting to install..."
     sudo snap install microk8s --classic
 fi
 
