@@ -1,7 +1,6 @@
 # i5heu's Aliases
-
-Look here for [Install](#Install)
-
+[Install Aliases](#Install)
+[Legend](#Legend)
 
 
 ## Aliases
@@ -12,8 +11,11 @@ Look here for [Install](#Install)
 - `tazstd` Will tar a given directory and compress it with ZSTD
 - `recomp` Will down and up docker compose, will remove orphans, will show then logs which you can Strg+C without taking the deployment down
 - `aliasup` Will update and apply this aliases collection to your system, current and future sessions
+
+### Kubernetes
 - `k` Alias for `microk8s kubectl` - the kubectl of microk8s
 - `m8` Alias for `microk8s`
+- `m8dp` Alias for `microk8s dashboard-proxy`
 
 ### Install Aliases
 - `intsall_default` 👑 Will install `docker.io docker-compose-v2 htop iftop`
@@ -22,7 +24,7 @@ Look here for [Install](#Install)
 ### Legend
 - 👑 will call sudo
 
-## Install
+## Install Aliases
 Go to homefolder and run this
 ```bash
 git clone https://github.com/i5heu/aliases.git ~/.aliases && bash ~/.aliases/setup.sh && source ~/.aliases/aliases
