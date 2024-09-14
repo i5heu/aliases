@@ -22,28 +22,28 @@ alias k='kubeTarget'
 # kubectl will use kubectl if available, otherwise it will use microk8s kubectl 
 alias kubectl='kubeTarget'
 
-# shortcut for to get rollout restart
+# shortcut to get rollout restart
 alias kpf="kubectl port-forward"
 
-# shortcut for to get all pods in all namespaces
+# shortcut to get all pods in all namespaces
 alias kls='kubeTarget get pods --all-namespaces'
 
-# shortcut for to get all services in all namespaces
+# shortcut to get all services in all namespaces
 alias ksv='kubeTarget get services --all-namespaces'
 
-# shortcut for to get all deployments in all namespaces
+# shortcut to get all deployments in all namespaces
 alias kdp='kubeTarget get deployments --all-namespaces'
 
-# shortcut for to get all nodes
+# shortcut to get all nodes
 alias kn='kubeTarget get nodes'
 
-# shortcut for to get all namespaces
+# shortcut to get all namespaces
 alias kns='kubeTarget get namespaces'
 
-# shortcut for to get rollout history
+# shortcut to get rollout history
 alias kdh='kubeTarget rollout history'
 
-# shortcut for to get rollout status
+# shortcut to get rollout status
 alias kds='kubeTarget rollout status'
 
 
