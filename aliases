@@ -53,7 +53,7 @@ alias install_microk8='sh ~/.aliases/install_MicroK8s.sh'
 # Display all file contents in the current directory recursively
 alias showContents='~/.aliases/show_contents.sh'
 
-# List all available aliases and functions with their descriptions Options: -v will show the aliases file -d asoidhsaoidh
+# List all available aliases and functions with their descriptions Options: -v will show the aliases file
 alias listAliases='~/.aliases/listAliases.sh' 
 
 ###################################################
