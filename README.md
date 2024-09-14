@@ -3,7 +3,7 @@ This is a collection of aliases and functions that I use.
 A easy way to update these scripts is provided with `aliasup`.  
 Tools for Documentation are also included.  
 
-[Install Aliases](#install-aliases-1)  
+[Install Aliases](#install-aliases)  
 [Legend](#Legend)
 
 
@@ -52,9 +52,6 @@ Options:
    - **-v** will show the aliases file
    - **-m** will print in markdown format
 - **aliasup** - Update the aliases collection on your system
-
-### ######## HELPER FUNCTIONS ########
-- **kubeTarget** -# Function to set the correct kubectl alias
 
 ## Legend
 Aliase marked with 👑 will call sudo

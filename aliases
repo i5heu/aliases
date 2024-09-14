@@ -138,9 +138,9 @@ alias aliasup='( cd ~/.aliases && git pull ) && source ~/.aliases/aliases'
 ######################################
 ########## HELPER FUNCTIONS ##########
 ######################################
-## use duble hash and space to not show in listAliases
+### use tripple hash and space to not show in listAliases
 
-## Function to set the correct kubectl alias
+### Function to set the correct kubectl alias
 kubeTarget() {
     # Check if kubectl is installed
     if command -v kubectl >/dev/null 2>&1; then
