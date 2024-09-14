@@ -113,6 +113,15 @@ else
             }
         }
 
+        # Match titles that begin and end with two '#' symbols
+        /^##.*##$/ {
+            if ($0 !~ /^#+$/) {  # Ensure the line is not just a series of '#'
+                if (match($0, /^##\s*(.*?)\s*##$/, arr)) {
+                    printf "\n\n\033[1m>\033[0m %s", arr[1];  # Print the content between ## in bold
+                }
+            }
+        }
+
         # Process comments and skip to the next line
         /^#/ { 
             comment = substr($0, 2); 
@@ -123,7 +132,7 @@ else
         /^alias/ {                             
             sub(/^alias\s+/, "");              
             sub(/=.*/, "");                    
-            printf "\n\033[1m%s\033[0m", $0;   # Print the alias name in bold
+            printf "\n    \033[1m%s\033[0m", $0;   # Print the alias name in bold
             if (comment != "") {
                 print_comment(comment, $0);
             }
@@ -133,13 +142,14 @@ else
         # For functions
         /^[a-zA-Z_][a-zA-Z0-9_]*\s*\(\)\s*\{/ {
             if (match($0, /^([a-zA-Z_][a-zA-Z0-9_]*)\s*\(\)\s*\{/, arr)) {
-                printf "\n\033[1m%s\033[0m", arr[1];  # Print the function name in bold
+                printf "\n    \033[1m%s\033[0m", arr[1];  # Print the function name in bold
             }
             if (comment != "") {
                 print_comment(comment, arr[1]);
             }
             comment = "";
         }
+
     ' "$ALIASES_FILE"
     echo
     echo

@@ -1,13 +1,20 @@
-###################################################
-############# Aliases Shortcut Aliases ############
-###################################################
+#
+#  Pls note that special formatting is required for the comments to be displayed correctly in the listAliases command
+#  You can create a Title like this:
+#        ###################
+#        ## Example Title ##
+#        ###################
+#
+#  And a Description for an alias is a comment that starts with a single hash and space "# " one line above the alias.
+#  Command options can be added to the Description with "Options: " followed by the options starting with a hyphen.
+#  Example:
+#   # Example Alias Description Options: -v will apear as option and option description -h this is another option
+#   alias example='YOUR_COMMAND'
+#
 
-# Alias for listAliases script
-alias laa='listAliases'
-
-###################################################
-################### Real Aliases ##################
-###################################################
+###########################
+## Kubernetes and Docker ##
+###########################
 
 # Starting MicroK8s
 alias m8='microk8s'
@@ -21,44 +28,31 @@ alias k='microk8s kubectl'
 # kubectl command linked to MicroK8s
 alias kubectl='microk8s kubectl'
 
-# Listing all files with human-readable sizes
-alias lh='ls -lah'
-
-###################################################
-#####  Aliases That Behave Like New Programs #####
-###################################################
-
-# Display the size of all folders in the current directory, sorted by size
-alias dud='du -hd 1 . | sort -hr'
-
-# Update, upgrade, dis-upgrade, and autoremove packages
-alias up='sudo apt-get update && sudo apt-get -y full-upgrade && sudo apt-get -y dist-upgrade && sudo apt-get -y autoremove'
-
 # Down and up Docker Compose, remove orphans, and follow logs
 alias recomp='docker_compose_down_up_logs'
-
-# Update the aliases collection on your system
-alias aliasup='( cd ~/.aliases && git pull ) && source ~/.aliases/aliases'
-
-# Install default packages: docker.io, docker-compose-v2, htop, iftop
-alias install_default='sudo apt install -y docker.io docker-compose-v2 htop iftop'
-
-###################################################
-########### Aliases That Run Scripts ##############
-###################################################
 
 # Install MicroK8s by running the install script
 alias install_microk8='sh ~/.aliases/install_MicroK8s.sh'
 
+# Function to handle Docker Compose commands: down, up, and logs
+docker_compose_down_up_logs() {
+    docker_compose down
+    docker_compose up --remove-orphans -d
+    docker_compose logs -f
+}
+
+################
+## Filesystem ##
+################
+
+# Listing all files with human-readable sizes
+alias lh='ls -lah'
+
+# Display the size of all folders in the current directory, sorted by size
+alias dud='du -hd 1 . | sort -hr'
+
 # Display all file contents in the current directory recursively
 alias showContents='~/.aliases/show_contents.sh'
-
-# List all available aliases and functions with their descriptions Options: -v will show the aliases file
-alias listAliases='~/.aliases/listAliases.sh' 
-
-###################################################
-################ Alias Functions ##################
-###################################################
 
 # Function to tar and compress a directory with ZSTD
 tazstd() {
@@ -78,9 +72,25 @@ mkdid() {
     mkdir -p "$1" && cd "$1" || return
 }
 
-# Function to handle Docker Compose commands: down, up, and logs
-docker_compose_down_up_logs() {
-    docker_compose down
-    docker_compose up --remove-orphans -d
-    docker_compose logs -f
-}
+###########################
+## System Administration ##
+###########################
+
+# Update, upgrade, dis-upgrade, and autoremove packages
+alias up='sudo apt-get update && sudo apt-get -y full-upgrade && sudo apt-get -y dist-upgrade && sudo apt-get -y autoremove'
+
+# Install default packages: docker.io, docker-compose-v2, htop, iftop
+alias install_default='sudo apt install -y docker.io docker-compose-v2 htop iftop'
+
+###################################
+## Aliases (this script) Related ##
+###################################
+
+# Alias for listAliases script
+alias laa='listAliases'
+
+# List all available aliases and functions with their descriptions Options: -v will show the aliases file
+alias listAliases='~/.aliases/listAliases.sh' 
+
+# Update the aliases collection on your system
+alias aliasup='( cd ~/.aliases && git pull ) && source ~/.aliases/aliases'
