@@ -21,32 +21,32 @@ alias lh='ls -lah'
 #####  Aliases That Behave Like New Programs #####
 ###################################################
 
-# Alias to display the size of all folders in the current directory, sorted by size
+# Display the size of all folders in the current directory, sorted by size
 alias dud='du -hd 1 . | sort -hr'
 
-# Alias to update, upgrade, dis-upgrade, and autoremove packages
+# Update, upgrade, dis-upgrade, and autoremove packages
 alias up='sudo apt-get update && sudo apt-get -y full-upgrade && sudo apt-get -y dist-upgrade && sudo apt-get -y autoremove'
 
-# Alias to down and up Docker Compose, remove orphans, and follow logs
+# Down and up Docker Compose, remove orphans, and follow logs
 alias recomp='docker_compose_down_up_logs'
 
-# Alias to update the aliases collection on your system
+# Update the aliases collection on your system
 alias aliasup='( cd ~/.aliases && git pull ) && source ~/.aliases/aliases'
 
-# Alias to install default packages: docker.io, docker-compose-v2, htop, iftop
+# Install default packages: docker.io, docker-compose-v2, htop, iftop
 alias install_default='sudo apt install -y docker.io docker-compose-v2 htop iftop'
 
 ###################################################
 ########### Aliases That Run Scripts ##############
 ###################################################
 
-# Alias to install MicroK8s by running the install script
+# Install MicroK8s by running the install script
 alias install_microk8='sh ~/.aliases/install_MicroK8s.sh'
 
-# Alias to display all file contents in the current directory recursively
+# Display all file contents in the current directory recursively
 alias showContents='~/.aliases/show_contents.sh'
 
-# Alias to list all available aliases and functions with their descriptions
+# List all available aliases and functions with their descriptions Options: -v will show the aliases file -d asoidhsaoidh
 alias listAliases='~/.aliases/listAliases.sh' 
 
 ###################################################

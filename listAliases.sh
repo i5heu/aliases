@@ -32,18 +32,19 @@ if [ "$LISTALIASES_VERBOSE" = true ]; then
     # Verbose mode: display the entire aliases file with syntax highlighting
     if command -v highlight &> /dev/null; then
         highlight -O ansi --syntax=sh "$HOME/.aliases/aliases"
-else
-    printf "Error: No syntax highlighter found. Install'highlight' to use verbose mode. For Debian based distros use:\nsudo apt install highlight\n" >&2
-    printf "Would you like to install 'highlight' now? [Y/n]: "
-    read -r response
-    if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]] || [ -z "$response" ]; then
-        echo "Installing 'highlight'..."
-        sudo apt install highlight
     else
-        echo "Installation aborted by the user."
+        printf "Error: No syntax highlighter found. Install 'highlight' to use verbose mode. For Debian-based distros use:\n"
+        printf "sudo apt install highlight\n" >&2
+        printf "Would you like to install 'highlight' now? [Y/n]: "
+        read -r response
+        if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]] || [ -z "$response" ]; then
+            echo "Installing 'highlight'..."
+            sudo apt install highlight
+        else
+            echo "Installation aborted by the user."
+        fi
+        return 1
     fi
-    return 1
-fi
 
 else
     # Standard mode: list aliases and functions with their comments
@@ -61,34 +62,85 @@ else
     fi
 
     # Extract aliases with their comments
-    echo "Aliases:"
     awk '
-        /^#/ { comment = substr($0, 2); next }  # Capture comments and skip to the next line
-        /^alias/ {                             # Match lines starting with alias
-            sub(/^alias\s+/, "");              # Remove the alias keyword and following whitespace
-            sub(/=.*/, "");                    # Remove everything after and including the equals sign
+        # Define the function in awk to handle comments
+        function print_comment(comment, name) {
+
+            len = length($0); 
+            spaces = ""; 
+            for (i = 1; i <= len; i++) { 
+                spaces = spaces " "; 
+            } 
+
             if (comment != "") {
-                print "# " comment;            # Print the captured comment
+                options_index = index(comment, "Options:");
+                if (options_index > 0) {
+                    # Print the part before "Options:" and add a newline
+                    printf " -%s\n", substr(comment, 1, options_index - 1);
+                    # Extract the options part
+                    options_part = substr(comment, options_index);
+                    # Split the options_part into words
+                    n = split(options_part, words, /[ \t]+/);
+                    # Print "Options:" on a new line
+                    printf "%s   %s", spaces, words[1];  # Should be "Options:"
+                    # Process the rest of the words
+                    for (i = 2; i <= n; i++) {
+                        if (words[i] ~ /^-/) {
+                            # If the word is an option (starts with -), print it on a new indented line except for the first option
+                            if (i == 2) {
+                                printf " %s", words[i];
+                            } else {
+                                printf "%s            %s", spaces, words[i];
+                            }
+                        } else {
+                            # Continue printing the description on the same line
+                            printf "%s", words[i];
+                        }
+                        # Add a space after each word unless its the last word
+                        if (i < n && words[i+1] !~ /^-/) {
+                            printf " ";
+                        } else {
+                            # if last option, do not print newline
+                            if (i != n) { 
+                                printf "\n";
+                            }
+                        }
+                    }
+                } else {
+                    # Standard printing for comments without "Options:"
+                    printf " -%s", comment;
+                }
             }
-            print $0;                          # Print the alias name
-            comment = "";                      # Reset comment for the next round
+        }
+
+        # Process comments and skip to the next line
+        /^#/ { 
+            comment = substr($0, 2); 
+            next; 
+        }
+
+        # For aliases
+        /^alias/ {                             
+            sub(/^alias\s+/, "");              
+            sub(/=.*/, "");                    
+            printf "\n\033[1m%s\033[0m", $0;   # Print the alias name in bold
+            if (comment != "") {
+                print_comment(comment, $0);
+            }
+            comment = "";                      
+        }
+
+        # For functions
+        /^[a-zA-Z_][a-zA-Z0-9_]*\s*\(\)\s*\{/ {
+            if (match($0, /^([a-zA-Z_][a-zA-Z0-9_]*)\s*\(\)\s*\{/, arr)) {
+                printf "\n\033[1m%s\033[0m", arr[1];  # Print the function name in bold
+            }
+            if (comment != "") {
+                print_comment(comment, arr[1]);
+            }
+            comment = "";
         }
     ' "$ALIASES_FILE"
     echo
-
-    # Extract functions with their comments
-    echo "Functions:"
-    awk '
-        /^#/ { comment = substr($0, 2) }
-        /^[a-zA-Z_][a-zA-Z0-9_]*\s*\(\)\s*\{/ {
-            if (comment != "") {
-                print "# " comment
-            }
-            if (match($0, /^([a-zA-Z_][a-zA-Z0-9_]*)\s*\(\)\s*\{/, arr)) {
-                print arr[1]
-            }
-            comment = ""
-        }
-    ' "$ALIASES_FILE"
     echo
 fi
