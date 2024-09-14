@@ -1,43 +1,79 @@
 ###################################################
-################### real aliases ##################
+################### Real Aliases ##################
 ###################################################
+
+# Alias for starting MicroK8s
 alias m8='microk8s'
+
+# Alias for accessing the MicroK8s dashboard proxy
 alias m8dp='microk8s dashboard-proxy'
+
+# Alias for MicroK8s kubectl command
 alias k='microk8s kubectl'
+
+# Alias for kubectl command linked to MicroK8s
 alias kubectl='microk8s kubectl'
+
+# Alias for listing all files with human-readable sizes
 alias lh='ls -lah'
 
 ###################################################
-#####  aliases that behave like new programms #####
+#####  Aliases That Behave Like New Programs #####
 ###################################################
+
+# Alias to display the size of all folders in the current directory, sorted by size
 alias dud='du -hd 1 . | sort -hr'
+
+# Alias to update, upgrade, dis-upgrade, and autoremove packages
 alias up='sudo apt-get update && sudo apt-get -y full-upgrade && sudo apt-get -y dist-upgrade && sudo apt-get -y autoremove'
-alias recomp='docker_compose down && docker_compose up --remove-orphans -d && docker_compose logs -f'
-alias aliasup='( cd ~/.aliases && git pull ) && source ~/.aliases/aliases '
-alias intsall_default='sudo apt install docker.io docker-compose-v2 htop iftop'
+
+# Alias to down and up Docker Compose, remove orphans, and follow logs
+alias recomp='docker_compose_down_up_logs'
+
+# Alias to update the aliases collection on your system
+alias aliasup='( cd ~/.aliases && git pull ) && source ~/.aliases/aliases'
+
+# Alias to install default packages: docker.io, docker-compose-v2, htop, iftop
+alias install_default='sudo apt install -y docker.io docker-compose-v2 htop iftop'
 
 ###################################################
-########### aliases that run scripts ##############
+########### Aliases That Run Scripts ##############
 ###################################################
+
+# Alias to install MicroK8s by running the install script
 alias install_microk8='sh ~/.aliases/install_MicroK8s.sh'
+
+# Alias to display all file contents in the current directory recursively
 alias showContents='~/.aliases/show_contents.sh'
 
-###################################################
-################ alias functions ##################
-###################################################
-alias tazstd='function _tazstd(){ tar -cf - "$1" | zstd -o "$1.tar.zst"; }; _tazstd'
+# Alias to list all available aliases and functions with their descriptions
+alias listAliases='~/.aliases/listAliases.sh' 
 
-mkdid() {
-  mkdir -p "$1" && cd "$1"
-}
+###################################################
+################ Alias Functions ##################
+###################################################
 
-docker_compose() {
-    if command -v docker-compose &> /dev/null; then
-        docker-compose "$@"
-    elif command -v docker &> /dev/null && docker compose version &> /dev/null; then
-        docker compose "$@"
-    else
-        echo "Neither docker-compose nor 'docker compose' is available." >&2
+# Function to tar and compress a directory with ZSTD
+tazstd() {
+    if [ -z "$1" ]; then
+        echo "Usage: tazstd <directory>"
         return 1
     fi
+    tar -cf - "$1" | zstd -o "$1.tar.zst"
+}
+
+# Function to create directories recursively and navigate to the deepest directory
+mkdid() {
+    if [ -z "$1" ]; then
+        echo "Usage: mkdid <directory_path>"
+        return 1
+    fi
+    mkdir -p "$1" && cd "$1" || return
+}
+
+# Function to handle Docker Compose commands: down, up, and logs
+docker_compose_down_up_logs() {
+    docker_compose down
+    docker_compose up --remove-orphans -d
+    docker_compose logs -f
 }
