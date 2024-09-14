@@ -1,20 +1,27 @@
 ###################################################
+############# Aliases Shortcut Aliases ############
+###################################################
+
+# Alias for listAliases script
+alias laa='listAliases'
+
+###################################################
 ################### Real Aliases ##################
 ###################################################
 
-# Alias for starting MicroK8s
+# Starting MicroK8s
 alias m8='microk8s'
 
-# Alias for accessing the MicroK8s dashboard proxy
+# Accessing the MicroK8s dashboard proxy
 alias m8dp='microk8s dashboard-proxy'
 
-# Alias for MicroK8s kubectl command
+# MicroK8s kubectl command
 alias k='microk8s kubectl'
 
-# Alias for kubectl command linked to MicroK8s
+# kubectl command linked to MicroK8s
 alias kubectl='microk8s kubectl'
 
-# Alias for listing all files with human-readable sizes
+# Listing all files with human-readable sizes
 alias lh='ls -lah'
 
 ###################################################
