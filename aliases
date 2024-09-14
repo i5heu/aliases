@@ -89,7 +89,7 @@ alias install_default='sudo apt install -y docker.io docker-compose-v2 htop ifto
 # Alias for listAliases script
 alias laa='listAliases'
 
-# List all available aliases and functions with their descriptions Options: -v will show the aliases file
+# List all available aliases and functions with their descriptions Options: -v will show the aliases file -m will print in markdown format
 alias listAliases='~/.aliases/listAliases.sh' 
 
 # Update the aliases collection on your system

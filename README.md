@@ -4,23 +4,34 @@
 
 
 ## Aliases
-- `up` 👑 Will update, upgrade, dis-upgrade and autoremove
-- `dud` Will show the size of all folders in the current directory, sorted by size
-- `mkdid` Will create folder of path given recursivly and then enter the deepest folder
-- `lh` Will print list all files with human readable size
-- `tazstd` Will tar a given directory and compress it with ZSTD
-- `recomp` Will down and up docker compose, will remove orphans, will show then logs which you can Strg+C without taking the deployment down
-- `aliasup` Will update and apply this aliases collection to your system, current and future sessions
 
-### Kubernetes
-- `k` Alias for `microk8s kubectl` - the kubectl of microk8s
-- `kubectl` Alias for `microk8s kubectl` - the kubectl of microk8s
-- `m8` Alias for `microk8s`
-- `m8dp` Alias for `microk8s dashboard-proxy`
+### Kubernetes and Docker 
+- **m8** - Starting MicroK8s
+- **m8dp** - Accessing the MicroK8s dashboard proxy
+- **k** - MicroK8s kubectl command
+- **kubectl** - kubectl command linked to MicroK8s
+- **recomp** - Down and up Docker Compose, remove orphans, and follow logs
+- **install_microk8** - Install MicroK8s by running the install script
+- **docker_compose_down_up_logs** - Function to handle Docker Compose commands: down, up, and logs
 
-### Install Aliases
-- `intsall_default` 👑 Will install `docker.io docker-compose-v2 htop iftop`
-- `install_microk8` 👑 Will install MicroK8 - will call sudo
+### Filesystem 
+- **lh** - Listing all files with human-readable sizes
+- **dud** - Display the size of all folders in the current directory, sorted by size
+- **showContents** - Display all file contents in the current directory recursively
+- **tazstd** - Function to tar and compress a directory with ZSTD
+- **mkdid** - Function to create directories recursively and navigate to the deepest directory
+
+### System Administration 
+- **up** - Update, upgrade, dis-upgrade, and autoremove packages
+- **install_default** - Install default packages: docker.io, docker-compose-v2, htop, iftop
+
+### Aliases (this script) Related 
+- **laa** - Alias for listAliases script
+- **listAliases** - List all available aliases and functions with their descriptions   
+Options:
+   - **-v** will show the aliases file
+   - **-m** will print in markdown format
+- **aliasup** - Update the aliases collection on your system
 
 ### Legend
 - 👑 will call sudo
