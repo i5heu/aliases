@@ -51,10 +51,10 @@ alias lh='ls -lah'
 # Display the size of all folders in the current directory, sorted by size
 alias dud='du -hd 1 . | sort -hr'
 
-# Display all file contents in the current directory recursively
+# Display all file contents in the current directory recursively Options: -c Clean content by removing excessive whitespace and line breaks -e Comma-separated list of glob patterns to exclude (overrides default excludes)
 alias showContents='~/.aliases/show_contents.sh'
 
-# Function to tar and compress a directory with ZSTD
+# Function to tar and compress a directory with ZSTD, $0 <directory> is required
 tazstd() {
     if [ -z "$1" ]; then
         echo "Usage: tazstd <directory>"
@@ -63,7 +63,7 @@ tazstd() {
     tar -cf - "$1" | zstd -o "$1.tar.zst"
 }
 
-# Function to create directories recursively and navigate to the deepest directory
+# Function to create directories recursively and navigate to the deepest directory, $0 <directory> is required
 mkdid() {
     if [ -z "$1" ]; then
         echo "Usage: mkdid <directory_path>"

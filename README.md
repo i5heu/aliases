@@ -1,4 +1,8 @@
 # i5heu's Aliases
+This is a collection of aliases and functions that I use.  
+A easy way to update these scripts is provided with `aliasup`.  
+Tools for Documentation are also included.  
+
 [Install Aliases](#install-aliases-1)  
 [Legend](#Legend)
 
@@ -17,9 +21,12 @@
 ### Filesystem 
 - **lh** - Listing all files with human-readable sizes
 - **dud** - Display the size of all folders in the current directory, sorted by size
-- **showContents** - Display all file contents in the current directory recursively
-- **tazstd** - Function to tar and compress a directory with ZSTD
-- **mkdid** - Function to create directories recursively and navigate to the deepest directory
+- **showContents** - Display all file contents in the current directory recursively   
+Options:
+   - **-c** Clean content by removing excessive whitespace and line breaks
+   - **-e** Comma-separated list of glob patterns to exclude (overrides default excludes)
+- **tazstd** - Function to tar and compress a directory with ZSTD, $0 <directory> is required
+- **mkdid** - Function to create directories recursively and navigate to the deepest directory, $0 <directory> is required
 
 ### System Administration 
 - **up** - Update, upgrade, dis-upgrade, and autoremove packages 👑
