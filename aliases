@@ -12,9 +12,46 @@
 #   alias example='YOUR_COMMAND'
 #
 
-###########################
-## Kubernetes and Docker ##
-###########################
+################
+## Kubernetes ##
+################
+
+# kubectl command shortcut that will use kubectl if available, otherwise it will use microk8s kubectl
+alias k='kubeTarget'
+
+# kubectl will use kubectl if available, otherwise it will use microk8s kubectl 
+alias kubectl='kubeTarget'
+
+# shortcut for to get rollout restart
+alias kpf="kubectl port-forward"
+
+# shortcut for to get all pods in all namespaces
+alias kls='kubeTarget get pods --all-namespaces'
+
+# shortcut for to get all services in all namespaces
+alias ksv='kubeTarget get services --all-namespaces'
+
+# shortcut for to get all deployments in all namespaces
+alias kdp='kubeTarget get deployments --all-namespaces'
+
+# shortcut for to get all nodes
+alias kn='kubeTarget get nodes'
+
+# shortcut for to get all namespaces
+alias kns='kubeTarget get namespaces'
+
+# shortcut for to get rollout history
+alias kdh='kubeTarget rollout history'
+
+# shortcut for to get rollout status
+alias kds='kubeTarget rollout status'
+
+
+
+
+##############
+## MicroK8s ##
+##############
 
 # Starting MicroK8s
 alias m8='microk8s'
@@ -22,20 +59,22 @@ alias m8='microk8s'
 # Accessing the MicroK8s dashboard proxy
 alias m8dp='microk8s dashboard-proxy'
 
-# MicroK8s kubectl command
-alias k='microk8s kubectl'
-
-# kubectl command linked to MicroK8s
-alias kubectl='microk8s kubectl'
-
-# Down and up Docker Compose, remove orphans, and follow logs
-alias recomp='docker_compose_down_up_logs'
-
 # Install MicroK8s by running the install script
 alias install_microk8='sh ~/.aliases/install_MicroK8s.sh'
 
-# Function to handle Docker Compose commands: down, up, and logs
-docker_compose_down_up_logs() {
+############
+## Docker ##
+############
+
+# shortcut for docker-compose or docker compose
+alias dc='docker_compose'
+
+# shortcut for docker-compose or docker compose logs -f -n 500
+alias dcl='docker_compose logs -f -n 500'
+
+# will pull, down and up as deamon a docker compose, will remove orphans, and follow logs after up
+recomp() {
+    docker_compose pull
     docker_compose down
     docker_compose up --remove-orphans -d
     docker_compose logs -f
@@ -94,3 +133,25 @@ alias listAliases='~/.aliases/listAliases.sh'
 
 # Update the aliases collection on your system
 alias aliasup='( cd ~/.aliases && git pull ) && source ~/.aliases/aliases'
+
+
+######################################
+########## HELPER FUNCTIONS ##########
+######################################
+## use duble hash and space to not show in listAliases
+
+## Function to set the correct kubectl alias
+kubeTarget() {
+    # Check if kubectl is installed
+    if command -v kubectl >/dev/null 2>&1; then
+        # If kubectl is installed, use kubectl
+        kubectl "$@"
+    elif command -v microk8s >/dev/null 2>&1; then
+        # If microk8s is installed, use microk8s kubectl
+        microk8s kubectl "$@"
+    else
+        # If neither kubectl nor microk8s is available, print a warning
+        echo "Neither kubectl nor microk8s is installed. Please install one of them."
+        return 1
+    fi
+}

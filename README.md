@@ -9,14 +9,27 @@ Tools for Documentation are also included.
 
 ## Aliases
 
-### Kubernetes and Docker 
+### Kubernetes 
+- **k** - kubectl command shortcut that will use kubectl if available, otherwise it will use microk8s kubectl
+- **kubectl** - kubectl will use kubectl if available, otherwise it will use microk8s kubectl 
+- **kpf** - shortcut for to get rollout restart
+- **kls** - shortcut for to get all pods in all namespaces
+- **ksv** - shortcut for to get all services in all namespaces
+- **kdp** - shortcut for to get all deployments in all namespaces
+- **kn** - shortcut for to get all nodes
+- **kns** - shortcut for to get all namespaces
+- **kdh** - shortcut for to get rollout history
+- **kds** - shortcut for to get rollout status
+
+### MicroK8s 
 - **m8** - Starting MicroK8s
 - **m8dp** - Accessing the MicroK8s dashboard proxy
-- **k** - MicroK8s kubectl command
-- **kubectl** - kubectl command linked to MicroK8s
-- **recomp** - Down and up Docker Compose, remove orphans, and follow logs
 - **install_microk8** - Install MicroK8s by running the install script
-- **docker_compose_down_up_logs** - Function to handle Docker Compose commands: down, up, and logs
+
+### Docker 
+- **dc** - shortcut for docker-compose or docker compose
+- **dcl** - shortcut for docker-compose or docker compose logs -f -n 500
+- **recomp** - will pull, down and up as deamon a docker compose, will remove orphans, and follow logs after up
 
 ### Filesystem 
 - **lh** - Listing all files with human-readable sizes
@@ -39,6 +52,9 @@ Options:
    - **-v** will show the aliases file
    - **-m** will print in markdown format
 - **aliasup** - Update the aliases collection on your system
+
+### ######## HELPER FUNCTIONS ########
+- **kubeTarget** -# Function to set the correct kubectl alias
 
 ## Legend
 Aliase marked with 👑 will call sudo
