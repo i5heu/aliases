@@ -152,6 +152,9 @@ elif [ "$LISTALIASES_MARKDOWN" = true ]; then
 
     ' "$ALIASES_FILE"
     echo
+echo "
+## Legend
+Aliase marked with 👑 will call sudo"
     echo
 else
     # Standard mode: list aliases and functions with their comments
@@ -259,5 +262,7 @@ else
 
     ' "$ALIASES_FILE"
     echo
+    echo
+    echo "Aliase marked with 👑 will call sudo"
     echo
 fi

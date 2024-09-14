@@ -22,8 +22,8 @@
 - **mkdid** - Function to create directories recursively and navigate to the deepest directory
 
 ### System Administration 
-- **up** - Update, upgrade, dis-upgrade, and autoremove packages
-- **install_default** - Install default packages: docker.io, docker-compose-v2, htop, iftop
+- **up** - Update, upgrade, dis-upgrade, and autoremove packages 👑
+- **install_default** - Install default packages: docker.io, docker-compose-v2, htop, iftop 👑
 
 ### Aliases (this script) Related 
 - **laa** - Alias for listAliases script
@@ -33,8 +33,8 @@ Options:
    - **-m** will print in markdown format
 - **aliasup** - Update the aliases collection on your system
 
-### Legend
-- 👑 will call sudo
+## Legend
+Aliase marked with 👑 will call sudo
 
 ## Install Aliases
 Go to homefolder and run this
