@@ -20,6 +20,7 @@ alias intsall_default='sudo apt install docker.io docker-compose-v2 htop iftop'
 ########### aliases that run scripts ##############
 ###################################################
 alias install_microk8='sh ~/.aliases/install_MicroK8s.sh'
+alias showContents='~/.aliases/show_contents.sh'
 
 ###################################################
 ################ alias functions ##################
